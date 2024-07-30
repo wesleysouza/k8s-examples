@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  namespace: dotnet-apps
+  labels:
+    app: dotnet-app
+  name: dotnet-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dotnet-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dotnet-app
+    spec:
+      containers:
+      - image: wesleysouzasci/dummy-dotnet:1.0
+        name: dotnet-dummy-app
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

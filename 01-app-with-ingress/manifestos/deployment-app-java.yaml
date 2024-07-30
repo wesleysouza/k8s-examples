@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  namespace: java-apps
+  labels:
+    app: java-app
+  name: java-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: java-app
+    spec:
+      containers:
+      - image: wesleysouzasci/java-dummy-app:1.0
+        name: java-dummy-app
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
